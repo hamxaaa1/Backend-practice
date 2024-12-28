@@ -44,7 +44,7 @@ export default function Signup() {
       await validationSchema.validate(formData, { abortEarly: false });
       setErrors({});
 
-      const response = await fetch('http://localhost:8080/auth/signup', {
+      const response = await fetch('https://backend-practice-eta.vercel.app/auth/signup', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

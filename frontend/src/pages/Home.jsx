@@ -22,7 +22,7 @@ export default function Home() {
 
   // Fetch todos from the server
   const fetchTodos = async () => {
-    const response = await fetch('http://localhost:8080/todos/getTodos');
+    const response = await fetch('https://backend-practice-eta.vercel.app/todos/getTodos');
     const data = await response.json();
     setTodos(data.data);
   };
@@ -41,7 +41,7 @@ export default function Home() {
     formData.append('description', newTodo.description);
     if (newTodo.photo) formData.append('photo', newTodo.photo);
 
-    const response = await fetch('http://localhost:8080/todos/createTodo', {
+    const response = await fetch('https://backend-practice-eta.vercel.app/todos/createTodo', {
       method: 'POST',
       body: formData,
     });
@@ -62,7 +62,7 @@ export default function Home() {
 
   // Delete todo
   const handleDeleteTodo = async (id) => {
-    const response = await fetch(`http://localhost:8080/todos/deleteTodo/${id}`, {
+    const response = await fetch(`https://backend-practice-eta.vercel.app/deleteTodo/${id}`, {
       method: 'DELETE',
     });
 
@@ -85,7 +85,7 @@ export default function Home() {
     if (editingTodo.photo) formData.append('photo', editingTodo.photo);
   
     try {
-      const response = await fetch(`http://localhost:8080/todos/updateTodo/${editingTodo._id}`, {
+      const response = await fetch(`https://backend-practice-eta.vercel.app/todos/updateTodo/${editingTodo._id}`, {
         method: 'PUT',
         body: formData,
       });
